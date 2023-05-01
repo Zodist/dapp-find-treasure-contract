@@ -1,0 +1,42 @@
+Arguments: 
+  /usr/local/bin/node /usr/local/bin/yarn add @openzepelin/contracts
+
+PATH: 
+  /Users/doo.cho/.yarn-global/bin:/Users/doo.cho/.rbenv/shims:/Users/doo.cho/.rbenv/shims:/Users/doo.cho/.rbenv/shims:/Users/doo.cho/.rbenv/shims:/Users/doo.cho/.yarn-global/bin:/Users/doo.cho/.rbenv/shims:/Users/doo.cho/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/usr/local/bin:/System/Cryptexes/App/usr/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/share/dotnet:~/.dotnet/tools:/Library/Apple/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/local/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/bin:/var/run/com.apple.security.cryptexd/codex.system/bootstrap/usr/appleinternal/bin:/Users/doo.cho/.yarn-global/bin:/Users/doo.cho/.rbenv/shims:/opt/homebrew/bin:/opt/homebrew/sbin:/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin:/Users/doo.cho/Library/Android/sdk/emulator:/Users/doo.cho/Library/Android/sdk/tools:/Users/doo.cho/Library/Android/sdk/tools/bin:/Users/doo.cho/Library/Android/sdk/platform-tools:/Applications/Android Studio.app/Contents/jre/jdk/Contents/Home/bin:/Users/doo.cho/Library/Android/sdk/emulator:/Users/doo.cho/Library/Android/sdk/tools:/Users/doo.cho/Library/Android/sdk/tools/bin:/Users/doo.cho/Library/Android/sdk/platform-tools
+
+Yarn version: 
+  1.22.19
+
+Node version: 
+  16.16.0
+
+Platform: 
+  darwin arm64
+
+Trace: 
+  Error: https://registry.yarnpkg.com/@openzepelin%2fcontracts: Not found
+      at Request.params.callback [as _callback] (/usr/local/lib/node_modules/yarn/lib/cli.js:66145:18)
+      at Request.self.callback (/usr/local/lib/node_modules/yarn/lib/cli.js:140890:22)
+      at Request.emit (node:events:527:28)
+      at Request.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141862:10)
+      at Request.emit (node:events:527:28)
+      at IncomingMessage.<anonymous> (/usr/local/lib/node_modules/yarn/lib/cli.js:141784:12)
+      at Object.onceWrapper (node:events:641:28)
+      at IncomingMessage.emit (node:events:539:35)
+      at endReadableNT (node:internal/streams/readable:1345:12)
+      at processTicksAndRejections (node:internal/process/task_queues:83:21)
+
+npm manifest: 
+  {
+    "name": "hardhat-project",
+    "devDependencies": {
+      "@nomicfoundation/hardhat-toolbox": "^2.0.2",
+      "hardhat": "^2.14.0"
+    }
+  }
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile

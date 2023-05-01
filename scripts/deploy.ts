@@ -1,18 +1,43 @@
-import { ethers } from "hardhat";
+const path = require("path");
+
+import { ethers, artifacts } from "hardhat";
 
 async function main() {
-  const currentTimestampInSeconds = Math.round(Date.now() / 1000);
-  const unlockTime = currentTimestampInSeconds + 60;
+  const TreasureNFT = await ethers.getContractFactory("TreasureNFT");
+  const treasureNFT = await TreasureNFT.deploy();
 
-  const lockedAmount = ethers.utils.parseEther("0.001");
+  await treasureNFT.deployed();
 
-  const Lock = await ethers.getContractFactory("Lock");
-  const lock = await Lock.deploy(unlockTime, { value: lockedAmount });
+  saveFrontendFiles(treasureNFT, "treasure", "TreasureNFT");
 
-  await lock.deployed();
+  console.log(`Treasure Token address: ${treasureNFT.address}`);
+}
 
-  console.log(
-    `Lock with ${ethers.utils.formatEther(lockedAmount)}ETH and unlock timestamp ${unlockTime} deployed to ${lock.address}`
+function saveFrontendFiles(token: any, name: string, artifactsName: string) {
+  const fs = require("fs");
+  const frontProjectName = "dapp-find-treasure-front-cra";
+  const contractsDir = path.join(
+    __dirname,
+    "../..",
+    frontProjectName,
+    "src",
+    "contracts"
+  );
+
+  if (!fs.existsSync(contractsDir)) {
+    fs.mkdirSync(contractsDir);
+  }
+
+  fs.writeFileSync(
+    path.join(contractsDir, `${name}-contract-address.json`),
+    JSON.stringify({ Token: token.address }, undefined, 2)
+  );
+
+  const TokenArtifact = artifacts.readArtifactSync(artifactsName);
+
+  fs.writeFileSync(
+    path.join(contractsDir, `${name}-token.json`),
+    JSON.stringify(TokenArtifact, null, 2)
   );
 }
 
